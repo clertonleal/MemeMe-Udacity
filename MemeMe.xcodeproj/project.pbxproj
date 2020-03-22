@@ -15,6 +15,7 @@
 		E482140E24266920001F2B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E482140C24266920001F2B07 /* LaunchScreen.storyboard */; };
 		E48214162426DEF9001F2B07 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48214152426DEF9001F2B07 /* ImageUtils.swift */; };
 		E48214182426E072001F2B07 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48214172426E072001F2B07 /* KeyboardManager.swift */; };
+		E482141C2427ABB2001F2B07 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482141B2427ABB2001F2B07 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E482140F24266920001F2B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48214152426DEF9001F2B07 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		E48214172426E072001F2B07 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		E482141B2427ABB2001F2B07 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		E48214002426691F001F2B07 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				E48214192427AB88001F2B07 /* utils */,
 				E48214012426691F001F2B07 /* AppDelegate.swift */,
 				E48214032426691F001F2B07 /* SceneDelegate.swift */,
 				E48214052426691F001F2B07 /* ViewController.swift */,
@@ -67,10 +70,18 @@
 				E482140A24266920001F2B07 /* Assets.xcassets */,
 				E482140C24266920001F2B07 /* LaunchScreen.storyboard */,
 				E482140F24266920001F2B07 /* Info.plist */,
+				E482141B2427ABB2001F2B07 /* Meme.swift */,
+			);
+			path = MemeMe;
+			sourceTree = "<group>";
+		};
+		E48214192427AB88001F2B07 /* utils */ = {
+			isa = PBXGroup;
+			children = (
 				E48214152426DEF9001F2B07 /* ImageUtils.swift */,
 				E48214172426E072001F2B07 /* KeyboardManager.swift */,
 			);
-			path = MemeMe;
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				E48214062426691F001F2B07 /* ViewController.swift in Sources */,
 				E48214182426E072001F2B07 /* KeyboardManager.swift in Sources */,
 				E48214022426691F001F2B07 /* AppDelegate.swift in Sources */,
+				E482141C2427ABB2001F2B07 /* Meme.swift in Sources */,
 				E48214042426691F001F2B07 /* SceneDelegate.swift in Sources */,
 				E48214162426DEF9001F2B07 /* ImageUtils.swift in Sources */,
 			);

@@ -12,8 +12,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topLabel: UITextField!
-    @IBOutlet weak var bottomLabel: UITextField!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var toollBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -23,9 +23,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        topLabel.delegate = self
-        bottomLabel.delegate = self
-        keyboardManager = KeyboardManager(view: view, shouldUpScreen: { self.bottomLabel.isEditing })
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        keyboardManager = KeyboardManager(view: view, shouldUpScreen: { self.bottomTextField.isEditing })
         keyboardManager.subscribeToKeyboardNotifications()
     }
     
@@ -64,8 +64,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        topLabel.text = "TOP"
-        bottomLabel.text = "BOTTOM"
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
         memeImage.image = nil
         
         shareButton.isEnabled = false
@@ -73,7 +73,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareAction(_ sender: Any) {
         let viewController = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: [])
+        viewController.completionWithItemsHandler = { activity, success, items, error in
+            if success {
+                self.save()
+            }
+        }
+        
         present(viewController, animated: true)
+    }
+    
+    private func save() {
+        // TODO will be implemented in the next chalenge
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImage.image!, memedImage: generateMemedImage())
     }
 
     private func openImageSelector(type: UIImagePickerController.SourceType) {
