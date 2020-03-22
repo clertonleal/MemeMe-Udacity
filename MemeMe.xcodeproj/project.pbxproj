@@ -13,7 +13,7 @@
 		E48214092426691F001F2B07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48214072426691F001F2B07 /* Main.storyboard */; };
 		E482140B24266920001F2B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E482140A24266920001F2B07 /* Assets.xcassets */; };
 		E482140E24266920001F2B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E482140C24266920001F2B07 /* LaunchScreen.storyboard */; };
-		E48214162426DEF9001F2B07 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48214152426DEF9001F2B07 /* ImageUtils.swift */; };
+		E48214162426DEF9001F2B07 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48214152426DEF9001F2B07 /* ViewUtils.swift */; };
 		E48214182426E072001F2B07 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48214172426E072001F2B07 /* KeyboardManager.swift */; };
 		E482141C2427ABB2001F2B07 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E482141B2427ABB2001F2B07 /* Meme.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 		E482140A24266920001F2B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E482140D24266920001F2B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E482140F24266920001F2B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E48214152426DEF9001F2B07 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		E48214152426DEF9001F2B07 /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		E48214172426E072001F2B07 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		E482141B2427ABB2001F2B07 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +78,7 @@
 		E48214192427AB88001F2B07 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				E48214152426DEF9001F2B07 /* ImageUtils.swift */,
+				E48214152426DEF9001F2B07 /* ViewUtils.swift */,
 				E48214172426E072001F2B07 /* KeyboardManager.swift */,
 			);
 			path = utils;
@@ -160,7 +160,7 @@
 				E48214022426691F001F2B07 /* AppDelegate.swift in Sources */,
 				E482141C2427ABB2001F2B07 /* Meme.swift in Sources */,
 				E48214042426691F001F2B07 /* SceneDelegate.swift in Sources */,
-				E48214162426DEF9001F2B07 /* ImageUtils.swift in Sources */,
+				E48214162426DEF9001F2B07 /* ViewUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,8 +23,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        topTextField.delegate = self
-        bottomTextField.delegate = self
+        configureTextFields()
         keyboardManager = KeyboardManager(view: view, shouldUpScreen: { self.bottomTextField.isEditing })
         keyboardManager.subscribeToKeyboardNotifications()
     }
@@ -40,7 +39,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         menuVisibility(visibility: true)
+        
         let image = generateScreenShot(view: view)
+        
         menuVisibility(visibility: false)
         return image
     }
@@ -80,6 +81,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         present(viewController, animated: true)
+    }
+    
+    private func configureTextFields() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let memeTextAttributes = getTextFieldAttributes()
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        topTextField.delegate = self
+        bottomTextField.delegate = self
     }
     
     private func save() {
