@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeCreatorViewController.swift
 //  MemeMe
 //
 //  Created by Clêrton Cunha Leal on 21/03/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeCreatorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var toollBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    var newItemResult: (() -> Void)?
     
     private var keyboardManager: KeyboardManager!
     
@@ -77,6 +79,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         viewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
                 self.save()
+                if let newItemResult = self.newItemResult {
+                    newItemResult()
+                }
             }
         }
         
@@ -97,8 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     private func save() {
-        // TODO will be implemented in the next chalenge
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImage.image!, memedImage: generateMemedImage())
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
 
     private func openImageSelector(type: UIImagePickerController.SourceType) {
