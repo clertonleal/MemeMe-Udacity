@@ -18,8 +18,6 @@ class MemeCreatorViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var toollBar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
-    var newItemResult: (() -> Void)?
-    
     private var keyboardManager: KeyboardManager!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,9 +77,6 @@ class MemeCreatorViewController: UIViewController, UIImagePickerControllerDelega
         viewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
                 self.save()
-                if let newItemResult = self.newItemResult {
-                    newItemResult()
-                }
             }
         }
         
@@ -103,7 +98,7 @@ class MemeCreatorViewController: UIViewController, UIImagePickerControllerDelega
     
     private func save() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImage.image!, memedImage: generateMemedImage())
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        (UIApplication.shared.delegate as! AppDelegate).addNewMeme(newMeme: meme)
     }
 
     private func openImageSelector(type: UIImagePickerController.SourceType) {

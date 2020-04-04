@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var memes: [Meme] = []
+    var memeAddedCallBacks: [String: ([Meme]) -> Void] = [:]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
@@ -20,6 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+    
+    func addNewMeme(newMeme: Meme) {
+        memes.append(newMeme)
+        memeAddedCallBacks.values.forEach({callback in callback(memes)})
+    }
+    
+    func subscribeNewMemes(key: String, callback: @escaping ([Meme]) -> Void) {
+        memeAddedCallBacks[key] = callback
+        callback(memes)
+    }
 
+    func unsubscribeNewMemes(key: String) {
+        memeAddedCallBacks.removeValue(forKey: key)
+    }
 }
 
